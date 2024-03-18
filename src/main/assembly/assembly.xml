@@ -3,7 +3,7 @@
         ID标签必须指定，ID会追加到打包的名字的末尾，项目名为：servicex-test-0.0.1-SNAPSHOT,
         打包后的名字为：servicex-test-0.0.1-SNAPSHOT-bin.tar.gz
      -->
-    <id>bin</id>
+    <id>xiaobo</id>
 
     <!-- 打包文件的类型，如果要输出多个类型的打包文件，则定义多个 -->
     <formats>
@@ -11,6 +11,7 @@
         <!--<format>tar</format>-->
         <!--<format>zip</format>-->
     </formats>
+
     <includeBaseDirectory>true</includeBaseDirectory>
 
     <!--文件复制与设置-->
