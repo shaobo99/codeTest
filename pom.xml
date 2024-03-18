@@ -66,21 +66,43 @@
 <!--            </plugin>-->
 <!--        </plugins>-->
         <plugins>
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>0.4.12</version>-->
+<!--                <configuration>-->
+<!--                    <imageName>spring-boot2-dockerfile</imageName>-->
+<!--                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.12</version>
+                <!-- 添加MAVEN提供的ASSEMBLY插件，默认使用spring-boot-maven-plugin打包，将项目所有的依赖打入到项目的JAR包里-->
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
-                    <imageName>spring-boot2-dockerfile</imageName>
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!--绑定到MAVEN的操作类型上-->
+                        <phase>package</phase>
+                        <!--仅仅运行一次-->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

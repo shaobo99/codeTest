@@ -1,0 +1,105 @@
+<assembly>
+    <!--
+        ID标签必须指定，ID会追加到打包的名字的末尾，项目名为：servicex-test-0.0.1-SNAPSHOT,
+        打包后的名字为：servicex-test-0.0.1-SNAPSHOT-bin.tar.gz
+     -->
+    <id>bin</id>
+
+    <!-- 打包文件的类型，如果要输出多个类型的打包文件，则定义多个 -->
+    <formats>
+        <format>tar.gz</format>
+        <!--<format>tar</format>-->
+        <!--<format>zip</format>-->
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <!--文件复制与设置-->
+    <fileSets>
+        <!--
+            0755： 即用户具有读/写/执行权限，组用户和其它用户具有读写权限；
+            0644： 即用户具有读写权限，组用户和其它用户具有只读权限；
+        -->
+        <!-- 1. 将src/main/assembly/bin目录下的所有文件输出到打包后的bin目录中 -->
+        <fileSet>
+            <directory>src/main/assembly/bin</directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <!--如果是执行脚本，一定要改为unix，否则当在windows上面时，脚本会出现dos编写问题-->
+            <lineEnding>unix</lineEnding>
+            <!-- 是否进行属性替换 -->
+            <filtered>true</filtered>
+        </fileSet>
+
+        <!-- 2. 将src/main/assembly/sql目录下的所有文件输出到打包后的sql目录中 -->
+        <fileSet>
+            <directory>src/main/assembly/sql</directory>
+            <outputDirectory>sql</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- 3. 将src/main/resources下配置文件打包到config目录 -->
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/config</outputDirectory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.properties</include>
+                <include>**/*.yml</include>
+            </includes>
+            <!-- 是否进行属性替换 -->
+            <filtered>true</filtered>
+        </fileSet>
+
+        <!-- 4. 将项目启动JAR打包到lib目录中 -->
+        <fileSet>
+            <directory>target</directory>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+        </fileSet>
+
+        <!-- 5. 将项目说明文档打包到doc目录中 -->
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>doc</outputDirectory>
+            <includes>
+                <include>*.md</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- 6. 将docs目录下的所有文件输出到打包后的doc目录中 -->
+        <fileSet>
+            <directory>doc</directory>
+            <outputDirectory>doc</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- 7. 将src/main/assembly/doc目录下的所有文件输出到打包后的doc目录中 -->
+        <fileSet>
+            <directory>src/main/assembly/doc</directory>
+            <outputDirectory>doc</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>deploy</directory>
+            <outputDirectory>deploy</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>deploy</directory>
+            <outputDirectory>deploy</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+    </fileSets>
+</assembly>
