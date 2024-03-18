@@ -97,7 +97,16 @@
             <directory>deploy</directory>
             <outputDirectory>deploy</outputDirectory>
             <includes>
-                <include>*</include>
+                <include>*/*</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>deploy</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>build.sh</include>
             </includes>
             <fileMode>0644</fileMode>
         </fileSet>
