@@ -4,7 +4,7 @@
 #EXPOSE 8888
 #ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","--spring.profiles.active=prd"]
 
-FROM java:8
+FROM openjdk:8
 
 COPY *.jar /app.jar
 
