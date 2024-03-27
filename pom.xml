@@ -46,6 +46,11 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
@@ -58,30 +63,36 @@
     </dependencies>
 
     <build>
-<!--        <plugins>-->
-<!--            &lt;!&ndash; 该插件可以将应用打包成一个可执行的jar &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
+        <!--        <plugins>-->
+        <!--            &lt;!&ndash; 该插件可以将应用打包成一个可执行的jar &ndash;&gt;-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>0.4.12</version>-->
-<!--                <configuration>-->
-<!--                    <imageName>spring-boot2-dockerfile</imageName>-->
-<!--                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <targetPath>/</targetPath>-->
-<!--                            <directory>${project.build.directory}</directory>-->
-<!--                            <include>${project.build.finalName}.jar</include>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>com.spotify</groupId>-->
+            <!--                <artifactId>docker-maven-plugin</artifactId>-->
+            <!--                <version>0.4.12</version>-->
+            <!--                <configuration>-->
+            <!--                    <imageName>spring-boot2-dockerfile</imageName>-->
+            <!--                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
+            <!--                    <resources>-->
+            <!--                        <resource>-->
+            <!--                            <targetPath>/</targetPath>-->
+            <!--                            <directory>${project.build.directory}</directory>-->
+            <!--                            <include>${project.build.finalName}.jar</include>-->
+            <!--                        </resource>-->
+            <!--                    </resources>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+            <!-- 该插件可以将应用打包成一个可执行的jar -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
 
             <plugin>
                 <!-- 添加MAVEN提供的ASSEMBLY插件，默认使用spring-boot-maven-plugin打包，将项目所有的依赖打入到项目的JAR包里-->
@@ -120,7 +131,6 @@
 
         </plugins>
     </build>
-
 
 
 </project>
