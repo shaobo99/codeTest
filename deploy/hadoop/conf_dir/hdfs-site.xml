@@ -1,0 +1,23 @@
+<configuration>
+    <property>
+        <name>dfs.nameservices</name>
+        <value>hadoop-cluster</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///data/hadoop/hdfs/nn</value>
+    </property>
+    <property>
+        <name>dfs.namenode.ch
+            eckpoint.dir</name>
+        <value>file:///data/hadoop/hdfs/snn</value>
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.edits.dir</name>
+        <value>file:///data/hadoop/hdfs/snn</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///data/hadoop/hdfs/dn</value>
+    </property>
+</configuration>

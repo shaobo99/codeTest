@@ -1,5 +1,5 @@
 #第六次
-FROM centos
+FROM centos:7
 MAINTAINER xiaobo
 WORKDIR /opt/
 COPY Centos-vault-8.5.2111.repo /tmp/Centos-vault-8.5.2111.repo
@@ -17,10 +17,10 @@ EXPOSE 22
 ADD jdk-8u212-linux-x64.tar.gz /opt/java
 ADD apache-hive-2.3.9-bin.tar.gz /opt/hive
 ADD hadoop-3.3.3.tar.gz /opt/hadoop
-COPY /conf_dir/yarn-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/yarn-site.xml
-COPY /conf_dir/core-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/core-site.xml
-COPY /conf_dir/hdfs-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/hdfs-site.xml
-COPY /conf_dir/mapred-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/mapred-site.xml
-COPY /conf_dir/env.txt /etc/profile.d/
+COPY conf_dir/yarn-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/yarn-site.xml
+COPY conf_dir/core-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/core-site.xml
+COPY conf_dir/hdfs-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/hdfs-site.xml
+COPY conf_dir/mapred-site.xml  /opt/hadoop/hadoop-3.3.3/etc/hadoop/mapred-site.xml
+COPY conf_dir/env.sh /etc/profile.d/
 
 RUN  source /etc/profile && mkdir -p /data/hadoop/hdfs/nn&& mkdir -p /data/hadoop/hdfs/dn && mkdir -p /data/hadoop/hdfs/snn && mkdir -p /data/hadoop/yarn/nm && chmod -R 777 /data && hdfs namenode -format
