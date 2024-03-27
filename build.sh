@@ -73,7 +73,10 @@ echo "删除镜像"
 docker rmi springboot
 echo "打包镜像"
 # 打包镜像
-docker build -t springboot .
+#docker build -t springboot .
+docker build -t 127.0.0.1:5555/springboot:v1.0 .
+echo "镜像推送"
+docker push 127.0.0.1:5555/springboot:v1.0
 echo "运行镜像"
 # 运行镜像
 docker run -d -p 8888:8888 --name springboot springboot
