@@ -112,7 +112,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.flong.SpringbootApplication</mainClass>
+                            <mainClass>com.xiaobo.demo.HelloApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
